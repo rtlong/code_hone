@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'figaro'
 gem 'trackman'
+gem 'honeybadger'
 
 group :development do
   gem 'haml-rails'

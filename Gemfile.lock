@@ -98,6 +98,9 @@ GEM
       railties (>= 3.1, < 4.1)
     hashie (1.2.0)
     hike (1.2.1)
+    honeybadger (1.5.0)
+      activesupport
+      json
     hpricot (0.8.6)
     httpauth (0.2.0)
     hub (1.10.4)
@@ -259,6 +262,7 @@ DEPENDENCIES
   figaro
   haml
   haml-rails
+  honeybadger
   hpricot
   hub
   jquery-rails
