@@ -34,6 +34,7 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
     binding_of_caller (0.6.8)
+    blockenspiel (0.4.5)
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -44,6 +45,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    chunky_png (1.2.7)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -52,6 +54,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     cucumber (1.2.1)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -74,9 +82,12 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    faraday (0.8.4)
+      multipart-post (~> 1.1)
     ffi (1.3.1)
     figaro (0.5.3)
       rails (~> 3.0)
+    fssm (0.2.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
     haml (3.1.7)
@@ -88,6 +99,7 @@ GEM
     hashie (1.2.0)
     hike (1.2.1)
     hpricot (0.8.6)
+    httpauth (0.2.0)
     hub (1.10.4)
     i18n (0.6.1)
     journey (1.0.4)
@@ -95,6 +107,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.6)
+    jwt (0.1.5)
+      multi_json (>= 1.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     mail (2.4.4)
@@ -102,6 +116,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    modular-scale (1.0.6)
+      compass (>= 0.12.1)
+      sass (>= 3.2.0)
+      sassy-math (>= 1.5)
     mongoid (3.0.18)
       activemodel (~> 3.1)
       moped (~> 1.2)
@@ -113,17 +131,23 @@ GEM
       rspec (>= 2.9)
     moped (1.3.2)
     multi_json (1.5.0)
+    multipart-post (1.1.5)
     nokogiri (1.5.6)
-    oauth (0.4.7)
+    oauth2 (0.8.0)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
-    omniauth-oauth (1.0.1)
-      oauth
+    omniauth-github (1.0.3)
       omniauth (~> 1.0)
-    omniauth-twitter (0.0.14)
-      multi_json (~> 1.3)
-      omniauth-oauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     origin (1.0.11)
     polyglot (0.3.3)
     puma (1.6.3)
@@ -155,6 +179,8 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -178,6 +204,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    sassy-math (1.5)
+      compass (~> 0.11)
     selenium-webdriver (2.29.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -191,6 +219,12 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     thor (0.16.0)
     tilt (1.3.3)
+    trackman (0.6.12)
+      json
+      nokogiri
+      rack
+      rest-client
+      versionomy
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -198,37 +232,47 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    versionomy (0.4.4)
+      blockenspiel (>= 0.4.5)
     websocket (1.0.6)
     xpath (1.0.0)
       nokogiri (~> 1.3)
+    zurb-foundation (3.2.4)
+      compass (>= 0.12.2)
+      modular-scale (= 1.0.6)
+      rake
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors (>= 0.3.2)
-  binding_of_caller (>= 0.6.8)
-  capybara (>= 2.0.2)
-  coffee-rails (~> 3.2.1)
-  cucumber-rails (>= 1.3.0)
-  database_cleaner (>= 0.9.1)
-  email_spec (>= 1.4.0)
-  factory_girl_rails (>= 4.1.0)
-  figaro (>= 0.5.3)
-  haml (>= 3.1.7)
-  haml-rails (>= 0.3.5)
-  hpricot (>= 0.8.6)
-  hub (>= 1.10.2)
+  better_errors
+  binding_of_caller
+  capybara
+  coffee-rails
+  compass-rails
+  cucumber-rails
+  database_cleaner
+  email_spec
+  factory_girl_rails
+  figaro
+  haml
+  haml-rails
+  hpricot
+  hub
   jquery-rails
-  launchy (>= 2.1.2)
-  mongoid (>= 3.0.18)
-  mongoid-rspec (>= 1.5.6)
-  omniauth (>= 1.1.1)
-  omniauth-twitter
-  puma (>= 1.6.3)
-  quiet_assets (>= 1.0.1)
+  launchy
+  mongoid
+  mongoid-rspec
+  omniauth
+  omniauth-github
+  puma
+  quiet_assets
   rails (= 3.2.11)
-  rspec-rails (>= 2.12.2)
-  ruby_parser (>= 3.1.1)
-  sass-rails (~> 3.2.3)
-  uglifier (>= 1.0.3)
+  rspec-rails
+  ruby_parser
+  sass-rails
+  trackman
+  uglifier
+  zurb-foundation
